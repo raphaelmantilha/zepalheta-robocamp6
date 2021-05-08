@@ -14,7 +14,7 @@ Novo cliente
     Então devo ver a notificação:   Cliente cadastrado com sucesso!  
 
 Campos Obrigatórios
-    [tags]  temp
+    [Tags]  temp
     Dado que acesso o formulário de cadastro de Clientes
     Quando faço a inclusão desse cliente: 
     ...     ${EMPTY}    ${EMPTY}    ${EMPTY}    ${EMPTY}
@@ -35,6 +35,10 @@ Endereço é obrigatório
 Telefone é obrigatório  
     [Template]  Validação de Campos
     Raphael Mantilha    ${EMPTY}        Avenida Paulista, 1000  ${EMPTY}        Telefone é obrigatório
+
+Telefone incorreto
+    [Template]  Validação de Campos
+    Raphael Mantilha    00000010646     Avenida Paulista, 1000  1199999999      Telefone inválido  
 
 ***Keywords***
 Validação de Campos
