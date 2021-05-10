@@ -8,11 +8,13 @@ Suite Teardown   Finish Session
 
 ***Test Cases***
 Novo cliente
+    [Tags]  smoke
     Dado que acesso o formulário de cadastro de Clientes
     E que eu tenho o seguinte cliente:
     ...     Bon Jovi    00000001406     Rua dos Bugs, 1000      11999999999
     Quando faço a inclusão desse cliente
     Então devo ver a notificação:   Cliente cadastrado com sucesso!  
+    E esse cliente deve ser exibido na lista
 
 Cliente duplicado
     [Tags]  dup

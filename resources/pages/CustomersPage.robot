@@ -7,6 +7,7 @@ ${LABEL_NAME}       css:label[for=name]
 ${LABEL_CPF}        css:label[for=cpf]         
 ${LABEL_ADDRESS}    css:label[for=address]     
 ${LABEL_PHONE}      css:label[for=phone_number]
+${CUSTOMERS_LIST}   css:table
 
 ***Keywords***
 Register New Customer
@@ -21,3 +22,16 @@ Register New Customer
 
     Click Element   xpath://button[text()='CADASTRAR']
 
+Got To Customer Details
+    [Arguments]     ${cpf_formatado}
+
+    ${element}=     Set Variable    xpath://td[text()='${cpf_formatado}']     
+
+    Wait Until Element is Visible   ${element}      5
+    Click Element                   ${element}      
+
+Click Remove Customer 
+    ${element}=     Set Variable    xpath://button[text()='APAGAR']
+
+    Wait Until Element is Visible   ${element}      5
+    Click Element                   ${element}      

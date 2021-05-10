@@ -16,10 +16,9 @@ Devo ver um toaster com a mensagem
 
     Wait Until Element Contains     ${TOASTER_ERROR_P}   ${expected_message}
 
-##Customers
+## Save Customers
 Dado que acesso o formulário de cadastro de Clientes
-    Wait Until Element is Visible   ${NAV_CUSTOMERS}    5
-    Click Element                   ${NAV_CUSTOMERS}
+    Go To Customers
     Wait Until Element is Visible   ${CUSTOMERS_FORM}     5
     Click Element                   ${CUSTOMERS_FORM}
 
@@ -51,8 +50,6 @@ Então devo ver a notificação de erro:
 
     Wait Until Element Contains     ${TOASTER_ERROR}    ${expected_notice}      5
     Wait Until Element Is Not Visible   ${TOASTER_ERROR}        20
-    # Sleep                           30
-    # Click Element                   ${TOASTER_ERROR}
 
 Então devo ver mensagens informando que os campos do cadastro de clientes são obrigatórios
     Wait Until Element Contains     ${LABEL_NAME}       Nome é obrigatório          5
@@ -64,3 +61,31 @@ Então devo ver o texto
     [Arguments]     ${expected_text}
 
      Wait Until Page Contains    ${expected_text}       5
+
+E esse cliente deve ser exibido na lista
+    ${cpf_formatado}=        Format Cpf  ${cpf}
+    Go Back
+    Wait Until Element Is Visible       ${CUSTOMERS_LIST}
+    Table Should Contain                ${CUSTOMERS_LIST}   ${cpf_formatado}              
+
+## Remove Customer
+Dado que eu tenho um cliente indesejado:
+    [Arguments]     ${name}     ${cpf}      ${address}      ${phone_number}
+    Remove Customer By cpf  ${cpf}
+    Insert Customer     ${name}     ${cpf}      ${address}      ${phone_number}
+
+    Set Test Variable   ${cpf}
+
+E acesso a lista de clientes
+    Go To Customers
+
+Quando eu removo esse cliente
+    #Format Cpf é a keyword que representa o método no arquivo db.py
+    ${cpf_formatado}=   Format Cpf  ${cpf}
+    Set Test Variable   ${cpf_formatado}
+
+    Got To Customer Details  ${cpf_formatado}
+    Click Remove Customer
+
+E este cliente não deve aparecer na lista
+    Wait Until Page Does Not Contain       ${cpf_formatado}       

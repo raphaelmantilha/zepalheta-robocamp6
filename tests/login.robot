@@ -10,6 +10,7 @@ Test Teardown   Finish Session
 
 ***Test Cases***
 Login do Administrador
+    [Tags]  smoke
     Acesso a página Login
     Submeto minhas credenciais  admin@zepalheta.com.br  pwd123
     Devo ver a área logada
