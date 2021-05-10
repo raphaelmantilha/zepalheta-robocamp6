@@ -14,6 +14,15 @@ Novo cliente
     Quando faço a inclusão desse cliente
     Então devo ver a notificação:   Cliente cadastrado com sucesso!  
 
+Cliente duplicado
+    [Tags]  dup
+    Dado que acesso o formulário de cadastro de Clientes
+    E que eu tenho o seguinte cliente:
+    ...     Adrian Smith    00000001407     Rua dos Bugs, 2000      11999999991
+    Mas este CPF já existe no sistema
+    Quando faço a inclusão desse cliente
+    Então devo ver a notificação de erro:   Este CPF já existe no sistema!
+                                            
 Campos Obrigatórios
     [Tags]  temp
     Dado que acesso o formulário de cadastro de Clientes
