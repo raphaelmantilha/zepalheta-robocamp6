@@ -1,7 +1,7 @@
 ***Settings***
 Documentation   Login
 
-Resource        ../resources/base.robot
+Resource        ../../resources/base.robot
 
 #executa uma ou mais keywords antes da execução de todos os steps de cada caso de teste
 Test Setup      Start Session

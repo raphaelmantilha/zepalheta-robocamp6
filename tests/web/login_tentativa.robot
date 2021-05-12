@@ -1,7 +1,7 @@
 ***Settings***
 Documentation   Login Tentativa
 
-Resource        ../resources/base.robot
+Resource        ../../resources/base.robot
 
 #executa uma ou mais keywords somente uma vez antes de todos os casos de teste
 Suite Setup      Start Session
