@@ -15,11 +15,11 @@ pipeline {
                 sh 'pip3 install psycopg2'
             }
         }
-        // stage('API Test'){
-        //     steps{
-        //         sh 'robot -d ./logs/api tests/api'
-        //     }
-        // }
+        stage('API Test'){
+            steps{
+                sh 'robot -d ./logs/api tests/api'
+            }
+        }
         stage('UI Tests'){
             steps{
                 sh 'robot -d ./logs/web -vbrowser:headless tests/web'

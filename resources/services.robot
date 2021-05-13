@@ -87,3 +87,16 @@ Delete Customer
     ${resp}             Delete Request      zp-api              /customers/${cpf}        headers=${headers}  
 
     [return]        ${resp}
+
+# POST /equipos
+Post Equipo
+    [Arguments]     ${payload}
+
+    Create Session      zp-api      ${base_api_url}
+
+    ${token}=           Get Session Token
+    &{headers}=         Create Dictionary   content-type=application/json       authorization=${token}
+
+    ${resp}=            Post Request        zp-api      /equipos      data=${payload}     headers=${headers}
+
+    [return]            ${resp}

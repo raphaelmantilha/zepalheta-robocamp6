@@ -3,8 +3,13 @@ Documentation       Representação do menu lateral de navegação na área loga
 
 ***Variables***
 ${NAV_CUSTOMERS}    css:a[href='/customers']
+${NAV_CONTRACTS}    css:a[href='/contracts']
 
 ***Keywords***
 Go To Customers
     Wait Until Element is Visible   ${NAV_CUSTOMERS}    5
     Click Element                   ${NAV_CUSTOMERS}
+
+Go To Contracts
+    Wait Until Element is Visible   ${NAV_CONTRACTS}    5
+    Click Element                   ${NAV_CONTRACTS}

@@ -28,15 +28,13 @@ Got To Customer Details
 
     ${element}=     Set Variable    xpath://td[text()='${cpf_formatado}']     
 
-    Reload Page
-    #Wait Until Element is Visible   ${element}      5
+    Wait Until Element is Visible   ${element}      5
     
     Click Element                   ${element}      
 
 Click Remove Customer 
     ${element}=     Set Variable    xpath://button[text()='APAGAR']
 
-    Reload Page
-    #Wait Until Element is Visible   ${element}      5
+    Wait Until Element is Visible   ${element}      5
 
     Click Element                   ${element}      

@@ -89,3 +89,29 @@ Quando eu removo esse cliente
 
 E este cliente não deve aparecer na lista
     Wait Until Page Does Not Contain       ${cpf_formatado}       
+
+## Contrato de Locação
+Dado que eu tenho o seguinte cliente cadastrado:
+    [Arguments]     ${file_name}    
+
+    ${customer}=     Get Json    customers/${file_name}
+
+    Delete Customer     ${customer['cpf']}
+    ${resp}=            Post Customer  ${customer}   
+
+    Set Test Variable   ${customer}    
+
+E este cliente deseja alugar o seguinte equipo:
+    [Arguments]     ${file_name}
+
+    ${equipo}=     Get Json  equipos/${file_name}
+
+    Post Equipo         ${equipo}
+    Set Test Variable   ${equipo}
+
+E acesso o formulário de contratos
+    GO To Contracts
+    Click Element   ${CONTRACTS_FORM}
+
+Quando faço um novo contrato de locação 
+   Create a New Contracts       ${customer['name']}      ${equipo['name']}

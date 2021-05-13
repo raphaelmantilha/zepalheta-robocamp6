@@ -1,0 +1,9 @@
+datasources:17f76b9c096d1fbcf5deef5d4582deee29a07ff9
+commandlineoptions:97d170e1550eee4afc0af065b78cda302a97674c
+suitesfrom:no-suites-from-option
+file:037206436047d1c9c05aae6bc583a8d50cf7d389
+--suite Web.Cadastro Clientes
+--suite Web.Contrato
+--suite Web.Exclusao Clientes
+--suite Web.Login
+--suite Web.Login Tentativa

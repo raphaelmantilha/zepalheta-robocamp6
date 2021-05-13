@@ -3,3 +3,4 @@ robotframework-seleniumlibrary
 robotframework-requests
 requests
 pyscopg2
+robotframework-pabot

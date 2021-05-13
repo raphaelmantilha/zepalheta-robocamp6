@@ -1,3 +1,6 @@
+***Variables***
+${browser}=    chrome
+
 ***Keywords***
 Start Session
 
