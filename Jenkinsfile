@@ -1,7 +1,7 @@
 pipeline {
     agent{
         docker{
-            image 'qaninja/pythonwd'
+            image 'qaninja/python-wd'
             args '--network=zepalheta-network'
         }
     }
