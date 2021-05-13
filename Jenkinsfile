@@ -1,7 +1,7 @@
 pipeline {
     agent{
         docker{
-            image 'python'
+            image 'qaninja/pythonwd'
             args '--network=zepalheta-network'
         }
     }
@@ -18,6 +18,11 @@ pipeline {
         stage('API Test'){
             steps{
                 sh 'robot -d ./logs tests/api'
+            }
+        }
+        stage('UI Tests'){
+            steps{
+                sh 'robot -d ./logs tests/web'
             }
         }
     }
