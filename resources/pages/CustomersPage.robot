@@ -13,7 +13,8 @@ ${CUSTOMERS_LIST}   css:table
 Register New Customer
     [Arguments]     ${name}     ${cpf}      ${address}      ${phone_number}
 
-    Wait Until Element is Visible   id:name 
+    Reload Page
+    #Wait Until Element is Visible   id:name 
 
     Input Text      id:name             ${name} 
     Input Text      id:cpf              ${cpf}
@@ -27,11 +28,15 @@ Got To Customer Details
 
     ${element}=     Set Variable    xpath://td[text()='${cpf_formatado}']     
 
-    Wait Until Element is Visible   ${element}      5
+    Reload Page
+    #Wait Until Element is Visible   ${element}      5
+    
     Click Element                   ${element}      
 
 Click Remove Customer 
     ${element}=     Set Variable    xpath://button[text()='APAGAR']
 
-    Wait Until Element is Visible   ${element}      5
+    Reload Page
+    #Wait Until Element is Visible   ${element}      5
+
     Click Element                   ${element}      
