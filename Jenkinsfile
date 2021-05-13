@@ -12,6 +12,7 @@ pipeline {
                 sh 'pip3 install robotframework'
                 sh 'pip3 install robotframework-seleniumlibrary'
                 sh 'pip3 install robotframework-requests==0.6.3'
+                sh 'pip3 install robotframework-pabot'
                 sh 'pip3 install psycopg2'
             }
         }
