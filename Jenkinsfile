@@ -11,7 +11,7 @@ pipeline {
             steps {
                 sh 'pip3 install robotframework'
                 sh 'pip3 install robotframework-seleniumlibrary'
-                sh 'pip3 install robotframework-requests'
+                sh 'pip3 install robotframework-requests==0.6.3'
                 sh 'pip3 install psycopg2'
             }
         }
@@ -22,7 +22,7 @@ pipeline {
         }
         stage('UI Tests'){
             steps{
-                sh 'robot -d ./logs tests/web'
+                sh 'robot -d ./logs -vbrowser:headless tests/web'
             }
         }
     }

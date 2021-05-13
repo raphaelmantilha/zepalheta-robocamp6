@@ -10,6 +10,7 @@ Suite Teardown   Finish Session
 
 #Aqui todos os casos de teste usam o mesmo template, por isso o template está definido aqui (em nível de suíte)
 Test Template   Tentativa de login
+Test Teardown   Finish TestCase
 
 ***Keywords***
 Tentativa de login
