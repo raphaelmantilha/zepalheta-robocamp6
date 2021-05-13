@@ -18,6 +18,7 @@ pipeline {
         stage('API Test'){
             steps{
                 sh 'robot -d ./logs tests/api'
+                robot archiveDirName: 'robot-plugin', outputPath: 'logs', overwriteXAxisLabel: ''
             }
         }
     }
