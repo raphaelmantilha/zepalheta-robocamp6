@@ -17,18 +17,18 @@ pipeline {
         }
         // stage('API Test'){
         //     steps{
-        //         sh 'robot -d ./logs tests/api'
+        //         sh 'robot -d ./logs/api tests/api'
         //     }
         // }
         stage('UI Tests'){
             steps{
-                sh 'robot -d ./logs -vbrowser:headless tests/web'
+                sh 'robot -d ./logs/web -vbrowser:headless tests/web'
             }
         }
     }
     post{
         always{
-            robot archiveDirName: 'robot-plugin', outputPath: 'logs', overwriteXAxisLabel: ''
+            robot archiveDirName: 'robot-plugin', disableArchiveOutput: true, logFileName: '**/log.html', otherFiles: '**/*.png,**/*.jpg', outputFileName: '**/output.xml', outputPath: 'logs', overwriteXAxisLabel: '', reportFileName: '**/report.html'
         }
     }
 }
